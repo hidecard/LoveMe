@@ -1,47 +1,58 @@
 const steps = [
     {
-        image: './img/img_crush.svg',
+        image: 'https://media.giphy.com/media/FPkmZEonYkd2GoanJ4/giphy.gif',
+        fallback: './img/img_crush.svg',
         caption: 'I have been wanting to tell you something...'
     },
     {
-        image: './img/img_think.svg',
+        image: 'https://media.giphy.com/media/dtkkGNfJ4q87XiSkRe/giphy.gif',
+        fallback: './img/img_think.svg',
         caption: 'I can not stop thinking about you'
     },
     {
-        image: './img/img_reasons.svg',
+        image: 'https://media.giphy.com/media/26xBuq3ganYoTUwuc/giphy.gif',
+        fallback: './img/img_reasons.svg',
         caption: 'There are so many reasons why I adore you'
     },
     {
-        image: './img/img_date.svg',
+        image: 'https://media.giphy.com/media/0VKJ1SB7XmTpuHFc1r/giphy.gif',
+        fallback: './img/img_date.svg',
         caption: 'Would you let me take you on a date?'
     },
     {
-        image: './img/img_dinner.svg',
+        image: 'https://media.giphy.com/media/DtBHcARLqNAvVnYsyD/giphy.gif',
+        fallback: './img/img_dinner.svg',
         caption: 'Dinner, just the two of us'
     },
     {
-        image: './img/img_sunset.svg',
+        image: 'https://media.giphy.com/media/IzXiddo2twMmdmU8Lv/giphy.gif',
+        fallback: './img/img_sunset.svg',
         caption: 'Watch the sunset with me?'
     },
     {
-        image: './img/img_dance.svg',
+        image: 'https://media.giphy.com/media/0WcVHiiNNgzXFfUlg7/giphy.gif',
+        fallback: './img/img_dance.svg',
         caption: 'One dance? I promise to be gentle'
     },
     {
-        image: './img/img_beach.svg',
+        image: 'https://media.giphy.com/media/kCVrJqqJYm7BmyGO7Y/giphy.gif',
+        fallback: './img/img_beach.svg',
         caption: 'Sand, waves, and you'
     },
     {
-        image: './img/img_adventure.svg',
+        image: 'https://media.giphy.com/media/Pjk1gR1DK8ULpXM44M/giphy.gif',
+        fallback: './img/img_adventure.svg',
         caption: 'Any adventure with you sounds perfect'
     },
     {
-        image: './img/img_letter2.svg',
+        image: 'https://media.giphy.com/media/yc2pHdAoxVOrJ2m5Ha/giphy.gif',
+        fallback: './img/img_letter2.svg',
         caption: 'I wrote this just for you...'
     },
     {
-        image: './img/img_proposal.svg',
-        caption: 'Will you be mine?'
+        image: 'https://media.giphy.com/media/wSxNZ8sksBiV2NVOfq/giphy.gif',
+        fallback: './img/img_proposal.svg',
+        caption: 'Will you be my girlfriend?'
     }
 ];
 
@@ -191,6 +202,18 @@ function sendLoveEmail() {
     }
 }
 
+function setStepImage(index) {
+    const step = steps[index];
+    if (!step) return;
+    image.src = step.image;
+    image.onerror = function () {
+        if (step.fallback) {
+            image.onerror = null;
+            image.src = step.fallback;
+        }
+    };
+}
+
 function updateStepIndicator() {
     const total = steps.length;
     let dots = '';
@@ -271,16 +294,16 @@ function showSurpriseContent() {
 }
 
 function finishRomanticFlow() {
-    image.src = steps[steps.length - 1].image;
-    caption.textContent = 'And now, the most important question... Do you love me?';
+    setStepImage(steps.length - 1);
+    caption.textContent = 'And now, the most important question... Will you be my girlfriend?';
     stepIndicator.style.display = 'none';
     currentStepEl.style.display = 'none';
-    yesButton.textContent = 'Yes, I do! ❤';
+    yesButton.textContent = 'Yes, I would! ❤';
     noButton.style.display = 'none';
     noButton.disabled = true;
     noButton.style.pointerEvents = 'none';
     yesButton.onclick = function() {
-        caption.textContent = 'I love you too! Now and forever ❤';
+        caption.textContent = 'Yay! You just made me the happiest person ever! ❤';
         finalSection.classList.remove('hidden');
         sendLoveEmail();
         startHeartsRain();
@@ -301,7 +324,7 @@ function handleYesClick() {
         return;
     }
 
-    image.src = steps[currentStep].image;
+    setStepImage(currentStep);
 
     if (currentStep === 1) {
         caption.textContent = getRandomMemory();
@@ -351,7 +374,7 @@ replayButton.addEventListener('click', function() {
     currentStep = 0;
     encourageIndex = 0;
     emailSent = false;
-    image.src = steps[0].image;
+    setStepImage(0);
     caption.textContent = steps[0].caption;
     yesButton.style.display = 'inline-block';
     yesButton.textContent = 'Tell me more ❤';
@@ -379,3 +402,4 @@ surpriseButton.addEventListener('click', function() {
 
 updateStepIndicator();
 updateStepCounter();
+setStepImage(0);
