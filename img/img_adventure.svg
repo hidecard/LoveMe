@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg13" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe8e8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ticket13" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff5f5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="ticketGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg13)" rx="25"/>
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="240" height="120" rx="12" fill="url(#ticket13)" stroke="#e74c3c" stroke-width="2" filter="url(#ticketGlow)"/>
+    <line x1="20" y1="20" x2="220" y2="20" stroke="#e74c3c" stroke-width="1" opacity="0.5"/>
+    <circle cx="40" cy="60" r="25" fill="#ff9999" opacity="0.5"/>
+    <text x="100" y="55" font-family="Georgia, serif" font-size="20" fill="#c0392b" text-anchor="middle" font-weight="bold">Road Trip</text>
+    <text x="100" y="80" font-family="Georgia, serif" font-size="14" fill="#d6336c" text-anchor="middle" font-style="italic">Anywhere you want to go</text>
+    <text x="100" y="105" font-family="Georgia, serif" font-size="12" fill="#888" text-anchor="middle">Passenger: You</text>
+  </g>
+  <g transform="translate(110, 240)">
+    <rect x="0" y="0" width="180" height="80" rx="12" fill="url(#ticket13)" stroke="#e74c3c" stroke-width="2" filter="url(#ticketGlow)"/>
+    <text x="90" y="35" font-family="Georgia, serif" font-size="16" fill="#c0392b" text-anchor="middle" font-weight="bold">Movie Night</text>
+    <text x="90" y="55" font-family="Georgia, serif" font-size="12" fill="#d6336c" text-anchor="middle" font-style="italic">Popcorn is on me</text>
+    <text x="90" y="72" font-family="Georgia, serif" font-size="11" fill="#888" text-anchor="middle">Movie: Your choice</text>
+  </g>
+  <text x="200" y="370" font-family="Georgia, serif" font-size="18" fill="#c0392b" text-anchor="middle" font-weight="bold">Pick your first date</text>
+  <text x="200" y="395" font-family="Georgia, serif" font-size="14" fill="#d6336c" text-anchor="middle" opacity="0.8">Any excuse to see your smile</text>
+</svg>

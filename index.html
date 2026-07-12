@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do you love me?</title>
+    <title>My Love Letter for You ❤</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div id="hearts-container"></div>
+    <div class="stars"></div>
     <div class="container">
-        <img id="mainImage" src="./img/img1.png" alt="First Image">
-        <p id="caption">Do you like this?</p>
-        <div class="buttons">
-            <button id="yesButton">Yes</button>
-            <button id="noButton">No</button>
+        <div class="page-header">
+            <h1 class="title">A Message for You</h1>
+            <p class="subtitle">From the moment we met...</p>
         </div>
+        <div id="step-indicator" class="step-indicator"></div>
+        <div id="image-wrapper">
+            <img id="mainImage" src="./img/img_crush.svg" alt="Heart">
+        </div>
+        <div class="message-box">
+            <p id="caption">I have been wanting to tell you something...</p>
+        </div>
+        <div class="buttons">
+            <button id="yesButton">Tell me more ❤</button>
+            <button id="noButton">Not interested</button>
+        </div>
+        <div class="step-counter">
+            <span id="currentStep">1</span> / <span id="totalSteps">10</span>
+        </div>
+        <div id="finalSection" class="hidden">
+            <div class="love-letter">
+                <p id="loveMessage">I chose you. Not just today, but every day.</p>
+                <p id="loveSubtext">You are my favorite notification.</p>
+            </div>
+            <div class="actions">
+                <button id="replay">Replay Our Story ✨</button>
+                <button id="surpriseButton">One More Surprise 💌</button>
+            </div>
+        </div>
+        <div id="surpriseSection" class="hidden">
+            <div class="surprise-content">
+                <p id="surpriseText">I saved this just for you...</p>
+                <div class="hearts-display" id="heartsDisplay"></div>
+            </div>
+        </div>
+        <div id="emailStatus" class="email-status hidden">Sent with love 💌</div>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="./app.js"></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff0f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe4e1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="heartGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ticketGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff0f0;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glowTicket">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg2)" rx="25"/>
+  <path d="M160 140 C 130 100, 90 120, 120 170 C 140 210, 160 220, 200 260 C 240 220, 260 210, 280 170 C 310 120, 270 100, 240 140 C 220 170, 200 190, 200 190 C 200 190, 180 170, 160 140 Z"
+        fill="url(#heartGrad2)" transform="scale(0.6) translate(133, 60)" filter="url(#glowTicket)"/>
+  <rect x="120" y="240" width="160" height="80" rx="10" fill="url(#ticketGrad)" stroke="#e74c3c" stroke-width="2" filter="url(#glowTicket)"/>
+  <line x1="130" y1="250" x2="270" y2="250" stroke="#ff9ebb" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="200" y="275" font-family="Georgia, serif" font-size="18" fill="#c0392b" text-anchor="middle" font-weight="bold">DATE TICKET</text>
+  <text x="200" y="295" font-family="Georgia, serif" font-size="13" fill="#d6336c" text-anchor="middle" font-style="italic">Name: You &amp; Me</text>
+  <text x="200" y="345" font-family="Georgia, serif" font-size="20" fill="#c0392b" text-anchor="middle" font-weight="bold">Will you go on a date with me?</text>
+</svg>

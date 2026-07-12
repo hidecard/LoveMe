@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d1b4e;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="moonGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fffde7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff59d;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#nightSky)" rx="20"/>
+  <circle cx="280" cy="80" r="50" fill="url(#moonGrad)"/>
+  <circle cx="300" cy="60" r="40" fill="url(#nightSky)"/>
+  <text x="200" y="220" font-family="Georgia, serif" font-size="28" fill="#fff" text-anchor="middle" opacity="0.9">You are my</text>
+  <text x="200" y="260" font-family="Georgia, serif" font-size="32" fill="#ffb6c1" text-anchor="middle" font-weight="bold" opacity="0.95">Moon &amp; Stars</text>
+  <text x="200" y="300" font-family="Georgia, serif" font-size="20" fill="#fff" text-anchor="middle" opacity="0.85" font-style="italic">I adore you</text>
+  <circle cx="50" cy="80" r="2" fill="#fff" opacity="0.8"/>
+  <circle cx="100" cy="40" r="1.5" fill="#fff" opacity="0.6"/>
+  <circle cx="180" cy="100" r="2.5" fill="#fff" opacity="0.7"/>
+  <circle cx="320" cy="150" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="70" cy="180" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="350" cy="120" r="2" fill="#fff" opacity="0.7"/>
+  <circle cx="140" cy="60" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="220" cy="170" r="1.5" fill="#fff" opacity="0.6"/>
+  <circle cx="300" cy="200" r="2" fill="#fff" opacity="0.5"/>
+  <circle cx="40" cy="300" r="2" fill="#fff" opacity="0.4"/>
+  <circle cx="360" cy="280" r="1.5" fill="#fff" opacity="0.5"/>
+</svg>
