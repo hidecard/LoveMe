@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff8fab">
     <title>My Love Letter for You ❤</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="hearts-container"></div>
     <div class="stars"></div>
+    <div class="confetti" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
     <div class="container">
         <div class="page-header">
             <h1 class="title">A Message for You</h1>
             <p class="subtitle">From the moment we met...</p>
+            <div class="divider"><span>❤</span></div>
         </div>
         <div id="step-indicator" class="step-indicator"></div>
         <div id="image-wrapper">
@@ -28,7 +38,7 @@
         <div class="step-counter">
             <span id="currentStep">1</span> / <span id="totalSteps">10</span>
         </div>
-        <div id="finalSection" class="hidden">
+        <div id="finalSection" class="final-section hidden">
             <div class="love-letter">
                 <p id="loveMessage">I chose you. Not just today, but every day.</p>
                 <p id="loveSubtext">You are my favorite notification.</p>
@@ -38,7 +48,7 @@
                 <button id="surpriseButton">One More Surprise 💌</button>
             </div>
         </div>
-        <div id="surpriseSection" class="hidden">
+        <div id="surpriseSection" class="surprise-section hidden">
             <div class="surprise-content">
                 <p id="surpriseText">I saved this just for you...</p>
                 <div class="hearts-display" id="heartsDisplay"></div>
