@@ -10,7 +10,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="locked">
+    <div id="lock-screen" class="lock-screen">
+        <div class="lock-card">
+            <div class="lock-icon">🔒</div>
+            <h2 class="lock-title">Enter Password</h2>
+            <p class="lock-subtitle">This letter is just for you 💕</p>
+            <div id="passDisplay" class="pass-display" aria-live="polite"></div>
+            <p id="lockError" class="lock-error"></p>
+            <div class="virtual-keyboard" id="virtualKeyboard">
+                <button type="button" class="vk-key" data-key="1">1</button>
+                <button type="button" class="vk-key" data-key="2">2</button>
+                <button type="button" class="vk-key" data-key="3">3</button>
+                <button type="button" class="vk-key" data-key="4">4</button>
+                <button type="button" class="vk-key" data-key="5">5</button>
+                <button type="button" class="vk-key" data-key="6">6</button>
+                <button type="button" class="vk-key" data-key="7">7</button>
+                <button type="button" class="vk-key" data-key="8">8</button>
+                <button type="button" class="vk-key" data-key="9">9</button>
+                <button type="button" class="vk-key vk-action" data-action="clear">Clear</button>
+                <button type="button" class="vk-key" data-key="0">0</button>
+                <button type="button" class="vk-key vk-action" data-action="delete">⌫</button>
+            </div>
+            <button type="button" id="unlockButton" class="unlock-button">Unlock ❤</button>
+        </div>
+    </div>
     <div id="hearts-container"></div>
     <div class="stars"></div>
     <div class="confetti" aria-hidden="true">
@@ -56,6 +80,81 @@
         </div>
         <div id="emailStatus" class="email-status hidden">Sent with love 💌</div>
     </div>
+    <script>
+        (function () {
+            const PASSWORD = '992003';
+            const MAX_LEN = PASSWORD.length;
+            let entered = '';
+
+            const lockScreen = document.getElementById('lock-screen');
+            const lockCard = lockScreen.querySelector('.lock-card');
+            const display = document.getElementById('passDisplay');
+            const errorEl = document.getElementById('lockError');
+            const keyboard = document.getElementById('virtualKeyboard');
+            const unlockBtn = document.getElementById('unlockButton');
+
+            function renderDisplay() {
+                display.innerHTML = '';
+                for (let i = 0; i < entered.length; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'pass-dot';
+                    display.appendChild(dot);
+                }
+            }
+
+            function addDigit(d) {
+                if (entered.length >= MAX_LEN) return;
+                errorEl.textContent = '';
+                entered += d;
+                renderDisplay();
+                if (entered.length === MAX_LEN) tryUnlock();
+            }
+
+            function deleteDigit() {
+                entered = entered.slice(0, -1);
+                errorEl.textContent = '';
+                renderDisplay();
+            }
+
+            function clearAll() {
+                entered = '';
+                errorEl.textContent = '';
+                renderDisplay();
+            }
+
+            function tryUnlock() {
+                if (entered === PASSWORD) {
+                    lockScreen.classList.add('hidden');
+                    document.body.classList.remove('locked');
+                } else {
+                    errorEl.textContent = 'Wrong password, try again 💔';
+                    lockCard.classList.remove('shake');
+                    void lockCard.offsetWidth;
+                    lockCard.classList.add('shake');
+                    setTimeout(clearAll, 500);
+                }
+            }
+
+            keyboard.addEventListener('click', function (e) {
+                const btn = e.target.closest('.vk-key');
+                if (!btn) return;
+                if (btn.dataset.key !== undefined) addDigit(btn.dataset.key);
+                else if (btn.dataset.action === 'delete') deleteDigit();
+                else if (btn.dataset.action === 'clear') clearAll();
+            });
+
+            unlockBtn.addEventListener('click', tryUnlock);
+
+            document.addEventListener('keydown', function (e) {
+                if (document.body.classList.contains('locked') === false) return;
+                if (e.key >= '0' && e.key <= '9') addDigit(e.key);
+                else if (e.key === 'Backspace') deleteDigit();
+                else if (e.key === 'Enter') tryUnlock();
+            });
+
+            renderDisplay();
+        })();
+    </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="./app.js"></script>
 </body>

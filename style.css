@@ -487,6 +487,156 @@ button:active::after {
     display: none !important;
 }
 
+/* ===== Password Lock Screen ===== */
+body.locked .container {
+    display: none !important;
+}
+
+.lock-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 209, 220, 0.6), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(255, 236, 179, 0.6), transparent 45%),
+        #f4e7d3;
+}
+
+.lock-screen.hidden {
+    display: none !important;
+}
+
+.lock-card {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    padding: 34px 26px;
+    background:
+        repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(180, 140, 110, 0.12) 32px),
+        #fffdf6;
+    border: 2px dashed #c9a87c;
+    border-radius: 16px;
+    box-shadow: 0 22px 55px rgba(90, 58, 41, 0.28);
+    animation: fadeIn 0.6s ease-in;
+}
+
+.lock-icon {
+    font-size: 2.6em;
+    margin-bottom: 6px;
+}
+
+.lock-title {
+    font-family: 'Caveat', cursive;
+    font-size: 2.6em;
+    color: #c0392b;
+    margin-bottom: 4px;
+}
+
+.lock-subtitle {
+    font-size: 1.15em;
+    color: #a86b4a;
+    margin-bottom: 18px;
+}
+
+.pass-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 46px;
+    margin-bottom: 8px;
+    font-size: 2em;
+    letter-spacing: 6px;
+    color: #7a4a2d;
+}
+
+.pass-display .pass-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e84393;
+    box-shadow: 0 0 10px rgba(232, 67, 147, 0.5);
+    animation: fadeIn 0.2s ease-in;
+}
+
+.lock-error {
+    min-height: 22px;
+    margin-bottom: 12px;
+    color: #c0392b;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.lock-card.shake {
+    animation: shake 0.45s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-7px); }
+    80% { transform: translateX(7px); }
+}
+
+.virtual-keyboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.vk-key {
+    padding: 16px 0;
+    font-size: 1.5em;
+    font-family: 'Patrick Hand', cursive;
+    border: 2px solid #b98a5e;
+    border-radius: 12px;
+    background: #fffdf6;
+    color: #5b3a29;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(90, 58, 41, 0.18);
+    transition: all 0.15s ease;
+    user-select: none;
+    width: 100%;
+    max-width: none;
+}
+
+.vk-key:hover {
+    background: #fff2d8;
+    transform: translateY(-2px);
+}
+
+.vk-key:active {
+    transform: translateY(1px) scale(0.97);
+    background: #ffe6b8;
+}
+
+.vk-action {
+    font-size: 1.15em;
+    background: #e8dcc4;
+    color: #7a5a3d;
+}
+
+.unlock-button {
+    width: 100%;
+    max-width: none;
+    background: linear-gradient(135deg, #ff9fb6, #e84393);
+    color: #fff;
+    border-color: #c0392b;
+    font-size: 1.3em;
+    padding: 14px 0;
+}
+
+.unlock-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 22px rgba(232, 67, 147, 0.45);
+}
+
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
